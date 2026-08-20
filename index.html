@@ -8,280 +8,372 @@
 
 <style>
 *{
-    box-sizing:border-box;
     margin:0;
     padding:0;
+    box-sizing:border-box;
 }
 
 body{
-    font-family:Arial,sans-serif;
-    background:#0d0d0d;
-    color:white;
+    font-family:Arial,"Noto Sans Bengali",sans-serif;
+    background:#0b0b0b;
+    color:#fff;
 }
 
 .hero{
-    min-height:45vh;
+    min-height:75vh;
     display:flex;
-    justify-content:center;
     align-items:center;
+    justify-content:center;
     text-align:center;
     padding:30px;
 
     background:
-    linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.75)),
-    url("https://images.unsplash.com/photo-1515003197210-e0cd71810b5f");
+    linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.85)),
+    url("https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=1600&q=85");
 
     background-size:cover;
     background-position:center;
 }
 
+.hero-content{
+    max-width:800px;
+}
+
 .hero h1{
-    font-size:55px;
+    font-size:64px;
     color:#d4af37;
+    margin-bottom:12px;
+    text-shadow:0 5px 20px #000;
 }
 
 .hero p{
-    margin-top:12px;
-    font-size:18px;
+    font-size:21px;
+    margin-bottom:25px;
+}
+
+.gold-btn{
+    display:inline-block;
+    background:#d4af37;
+    color:#111;
+    padding:14px 28px;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:bold;
+    border:0;
+    cursor:pointer;
 }
 
 .container{
-    max-width:900px;
+    max-width:1200px;
     margin:auto;
-    padding:30px 18px;
+    padding:35px 18px;
 }
 
-.table-box{
+.section-title{
     text-align:center;
-    background:#1c1c1c;
-    padding:25px;
-    border-radius:18px;
+    color:#d4af37;
+    font-size:32px;
+    margin:35px 0 25px;
+}
+
+.table-card{
+    background:#171717;
     border:1px solid #333;
+    padding:25px;
+    border-radius:20px;
+    text-align:center;
     margin-bottom:30px;
 }
 
-.table-box h2{
+.table-card h2{
     color:#d4af37;
-    margin-bottom:10px;
 }
 
-.qr-box{
-    background:white;
-    padding:15px;
-    border-radius:15px;
+.qr{
+    background:#fff;
+    padding:12px;
     display:inline-block;
-    margin-top:15px;
+    border-radius:12px;
+    margin:15px;
 }
 
-.qr-box img{
+.qr img{
     width:180px;
     height:180px;
-    display:block;
+}
+
+.menu{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+    gap:22px;
 }
 
 .food{
-    background:#1c1c1c;
-    border-radius:18px;
-    padding:20px;
-    margin:15px 0;
-    border:1px solid #333;
+    background:#171717;
+    border-radius:20px;
+    overflow:hidden;
+    border:1px solid #292929;
+    box-shadow:0 10px 30px rgba(0,0,0,.3);
+    transition:.25s;
 }
 
-.food h2{
+.food:hover{
+    transform:translateY(-5px);
+    border-color:#d4af37;
+}
+
+.food img{
+    width:100%;
+    height:210px;
+    object-fit:cover;
+    display:block;
+}
+
+.food-info{
+    padding:18px;
+}
+
+.food-info h3{
     color:#d4af37;
+    font-size:21px;
 }
 
-.food p{
+.bangla{
     color:#bbb;
-    margin:7px 0;
+    margin-top:6px;
 }
 
 .price{
-    font-size:22px;
+    font-size:23px;
     font-weight:bold;
     margin:12px 0;
 }
 
-.quantity{
+.qty{
     display:flex;
     align-items:center;
-    gap:10px;
+    gap:12px;
 }
 
-.quantity button{
+.qty button{
     width:38px;
     height:38px;
     border:0;
     border-radius:50%;
     background:#d4af37;
-    font-size:20px;
+    font-size:21px;
     cursor:pointer;
 }
 
-.quantity span{
-    font-size:20px;
-    min-width:25px;
+.qty span{
+    min-width:30px;
     text-align:center;
+    font-size:20px;
 }
 
-.order-box{
-    background:#1c1c1c;
-    padding:25px;
+.cart{
+    position:sticky;
+    bottom:10px;
+    z-index:10;
+    background:#181818;
+    border:1px solid #d4af37;
+    padding:18px;
     border-radius:18px;
-    margin-top:30px;
-    border:1px solid #333;
+    margin-top:35px;
+    box-shadow:0 5px 30px #000;
 }
 
-input,select{
-    width:100%;
-    padding:13px;
-    margin:8px 0;
-    border-radius:9px;
-    border:1px solid #555;
-    background:#101010;
-    color:white;
+.cart h2{
+    color:#d4af37;
 }
 
 .total{
     font-size:25px;
     color:#d4af37;
     font-weight:bold;
-    margin:20px 0;
+    margin:12px 0;
 }
 
-.order-btn{
+.order-box{
+    background:#171717;
+    padding:25px;
+    border-radius:20px;
+    margin-top:35px;
+}
+
+input,textarea,select{
+    width:100%;
+    padding:13px;
+    margin:8px 0;
+    border-radius:10px;
+    border:1px solid #444;
+    background:#0d0d0d;
+    color:#fff;
+}
+
+textarea{
+    min-height:100px;
+    resize:vertical;
+}
+
+.whatsapp{
     width:100%;
     padding:15px;
     border:0;
     border-radius:30px;
     background:#25D366;
-    color:white;
+    color:#fff;
     font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+    margin-top:10px;
+}
+
+.music{
+    position:fixed;
+    right:15px;
+    bottom:15px;
+    z-index:100;
+    background:#d4af37;
+    color:#111;
+    border:0;
+    border-radius:50px;
+    padding:12px 18px;
     font-weight:bold;
     cursor:pointer;
 }
 
+.review{
+    background:#171717;
+    padding:20px;
+    border-radius:18px;
+    margin-top:20px;
+    border:1px solid #333;
+}
+
+.memory{
+    margin-top:15px;
+    background:#171717;
+    padding:15px;
+    border-radius:15px;
+}
+
+.memory img{
+    width:100%;
+    max-height:350px;
+    object-fit:cover;
+    border-radius:12px;
+    margin-top:10px;
+}
+
 footer{
     text-align:center;
-    padding:30px;
+    padding:40px 15px;
     color:#888;
+}
+
+@media(max-width:600px){
+    .hero h1{
+        font-size:43px;
+    }
+
+    .hero p{
+        font-size:17px;
+    }
 }
 </style>
 </head>
 
+
 <body>
 
-<div class="hero">
-    <div>
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
         <h1>Bella Ciao</h1>
-        <p>Delicious Food • Great Moments ❤️</p>
+
+        <p>
+            Delicious Food • Great Taste • Great Memories ❤️
+        </p>
+
+        <a href="#menu" class="gold-btn">
+            🍽️ Explore Menu
+        </a>
+
     </div>
-</div>
+
+</section>
+
+
 
 <div class="container">
 
-<!-- TABLE + QR -->
 
-<div class="table-box">
+<!-- TABLE -->
+
+<div class="table-card">
 
     <h2 id="tableNumber">
         🪑 Table No. 1
     </h2>
 
-    <p>
-        এই টেবিল থেকে অর্ডার করা হচ্ছে
+    <p style="margin-top:8px">
+        Scan this QR to order from this table
     </p>
 
-    <div class="qr-box">
-        <img id="qrImage" alt="Table QR Code">
+    <div class="qr">
+
+        <img id="qrImage">
+
     </div>
 
-    <p style="color:#777;margin-top:10px">
-        📱 এই QR Code scan করে order করুন
+    <p style="color:#888">
+        📱 Table QR
     </p>
 
 </div>
 
 
-<h2 style="text-align:center;color:#d4af37;margin-bottom:20px">
+
+<!-- MENU -->
+
+<h2 class="section-title" id="menu">
     🍽️ Our Menu
 </h2>
 
+<div class="menu" id="menuList"></div>
 
-<!-- CHICKEN MOMO -->
 
-<div class="food">
 
-    <h2>🥟 Chicken Momo</h2>
+<!-- CART -->
 
-    <p>চিকেন মোমো (৬ পিস)</p>
+<div class="cart">
 
-    <div class="price">₹69</div>
+    <h2>🛒 Your Order</h2>
 
-    <div class="quantity">
+    <div id="cartItems">
+        No items selected
+    </div>
 
-        <button onclick="changeQty('momo',-1)">−</button>
-
-        <span id="momo">0</span>
-
-        <button onclick="changeQty('momo',1)">+</button>
-
+    <div class="total">
+        Total: ₹<span id="total">0</span>
     </div>
 
 </div>
 
-
-<!-- FRIED MOMO -->
-
-<div class="food">
-
-    <h2>🥟 Fried Momo</h2>
-
-    <p>ফ্রাইড মোমো (৬ পিস)</p>
-
-    <div class="price">₹99</div>
-
-    <div class="quantity">
-
-        <button onclick="changeQty('fried',-1)">−</button>
-
-        <span id="fried">0</span>
-
-        <button onclick="changeQty('fried',1)">+</button>
-
-    </div>
-
-</div>
-
-
-<!-- TEA -->
-
-<div class="food">
-
-    <h2>☕ Tea</h2>
-
-    <p>চা</p>
-
-    <div class="price">₹30</div>
-
-    <div class="quantity">
-
-        <button onclick="changeQty('tea',-1)">−</button>
-
-        <span id="tea">0</span>
-
-        <button onclick="changeQty('tea',1)">+</button>
-
-    </div>
-
-</div>
 
 
 <!-- CUSTOMER -->
 
 <div class="order-box">
 
-    <h2>👤 Customer Details</h2>
+    <h2 style="color:#d4af37">
+        👤 Customer Details
+    </h2>
 
     <input
         id="customerName"
@@ -294,28 +386,26 @@ footer{
         type="tel"
     >
 
-    <h3 style="margin-top:20px">
-        💳 Payment Method
+
+    <h3 style="margin-top:18px">
+        💳 Payment
     </h3>
 
     <select id="payment">
 
-        <option value="Cash">
+        <option value="Cash Payment">
             💵 Cash Payment
         </option>
 
-        <option value="Online">
+        <option value="Online Payment">
             🟢 Online Payment
         </option>
 
     </select>
 
-    <div class="total">
-        Total: ₹<span id="total">0</span>
-    </div>
 
     <button
-        class="order-btn"
+        class="whatsapp"
         onclick="sendOrder()"
     >
         📱 WhatsApp এ Order করুন
@@ -323,18 +413,137 @@ footer{
 
 </div>
 
+
+
+<!-- REVIEW -->
+
+<h2 class="section-title">
+    ⭐ Customer Reviews
+</h2>
+
+<div class="order-box">
+
+    <input
+        id="reviewName"
+        placeholder="আপনার নাম"
+    >
+
+    <select id="rating">
+
+        <option value="5">
+            ⭐⭐⭐⭐⭐
+        </option>
+
+        <option value="4">
+            ⭐⭐⭐⭐
+        </option>
+
+        <option value="3">
+            ⭐⭐⭐
+        </option>
+
+        <option value="2">
+            ⭐⭐
+        </option>
+
+        <option value="1">
+            ⭐
+        </option>
+
+    </select>
+
+    <textarea
+        id="reviewText"
+        placeholder="আপনার অভিজ্ঞতা লিখুন..."
+    ></textarea>
+
+    <button
+        class="gold-btn"
+        onclick="addReview()"
+    >
+        ⭐ Review Submit
+    </button>
+
 </div>
 
+<div id="reviews"></div>
+
+
+
+<!-- MEMORY -->
+
+<h2 class="section-title">
+    ❤️ Our Customer Memories
+</h2>
+
+<div class="order-box">
+
+    <input
+        id="memoryName"
+        placeholder="আপনার নাম"
+    >
+
+    <textarea
+        id="memoryText"
+        placeholder="Bella Ciao-তে আপনার স্মৃতির কথা লিখুন..."
+    ></textarea>
+
+    <input
+        id="memoryPhoto"
+        type="file"
+        accept="image/*"
+    >
+
+    <button
+        class="gold-btn"
+        onclick="addMemory()"
+    >
+        📸 Share Your Memory
+    </button>
+
+</div>
+
+<div id="memories"></div>
+
+
+
+</div>
+
+
+
 <footer>
+
     © 2026 Bella Ciao Restaurant ❤️
+    <br>
+    Delicious Food • Great Memories
+
 </footer>
+
+
+
+<!-- MUSIC BUTTON -->
+
+<button
+    class="music"
+    onclick="toggleMusic()"
+    id="musicButton"
+>
+    🎵 Music
+</button>
+
+<!-- নিজের Bella Ciao MP3 পরে এখানে বসাতে পারবে -->
+<audio id="music" loop>
+    <source src="bella-ciao.mp3" type="audio/mpeg">
+</audio>
+
 
 
 <script>
 
-/* =========================
-   TABLE NUMBER
-========================= */
+
+/* =========================================
+   TABLE
+========================================= */
 
 const params =
 new URLSearchParams(window.location.search);
@@ -347,88 +556,354 @@ document.getElementById("tableNumber").innerText =
 "🪑 Table No. " + table;
 
 
-/* =========================
-   QR CODE
-========================= */
 
-/*
-   Website online হলে এই URL-টাই
-   QR Code-এর ভিতরে থাকবে।
-*/
+/* =========================================
+   QR
+========================================= */
 
 const websiteURL =
 window.location.href.split("?")[0];
 
-const qrURL =
+const tableURL =
 websiteURL + "?table=" + table;
 
 
 document.getElementById("qrImage").src =
 "https://api.qrserver.com/v1/create-qr-code/?size=300x300&data="
-+ encodeURIComponent(qrURL);
++
+encodeURIComponent(tableURL);
 
 
-/* =========================
-   FOOD
-========================= */
 
-let quantities = {
+/* =========================================
+   25 FOOD ITEMS
+========================================= */
 
-    momo:0,
-    fried:0,
-    tea:0
+const foods = [
 
-};
+{
+name:"Chicken Momo",
+bn:"চিকেন মোমো (৬ পিস)",
+price:69,
+image:"https://loremflickr.com/800/600/momo?lock=1"
+},
+
+{
+name:"Gondhoraj Chicken Momo",
+bn:"গন্ধরাজ চিকেন মোমো (৬ পিস)",
+price:79,
+image:"https://loremflickr.com/800/600/chicken,momo?lock=2"
+},
+
+{
+name:"Fried Momo",
+bn:"ফ্রায়েড মোমো (৬ পিস)",
+price:99,
+image:"https://loremflickr.com/800/600/fried,momo?lock=3"
+},
+
+{
+name:"Pan Fried Momo",
+bn:"পান ফ্রায়েড মোমো (৬ পিস)",
+price:119,
+image:"https://loremflickr.com/800/600/pan-fried,momo?lock=4"
+},
+
+{
+name:"Sejwan Momo",
+bn:"সেওজান মোমো (৬ পিস)",
+price:129,
+image:"https://loremflickr.com/800/600/spicy,momo?lock=5"
+},
+
+{
+name:"Hot Garlic Momo",
+bn:"হট গার্লিক মোমো (৬ পিস)",
+price:129,
+image:"https://loremflickr.com/800/600/garlic,momo?lock=6"
+},
+
+{
+name:"Chill Momo",
+bn:"চিলি মোমো (৬ পিস)",
+price:129,
+image:"https://loremflickr.com/800/600/chilli,momo?lock=7"
+},
+
+{
+name:"Hot Pot Momo",
+bn:"হট পট মোমো (৬ পিস)",
+price:159,
+image:"https://loremflickr.com/800/600/hotpot,momo?lock=8"
+},
+
+{
+name:"Kurkure Momo",
+bn:"কুরকুরে মোমো (৬ পিস)",
+price:129,
+image:"https://loremflickr.com/800/600/crispy,momo?lock=9"
+},
+
+{
+name:"Chilly Garlic Momo",
+bn:"চিলি গার্লিক মোমো (৬ পিস)",
+price:129,
+image:"https://loremflickr.com/800/600/chilli,garlic?lock=10"
+},
+
+{
+name:"Bella Ciao Special Momo",
+bn:"বেলা চাও স্পেশাল মোমো (৮ পিস)",
+price:200,
+image:"https://loremflickr.com/800/600/momo,platter?lock=11"
+},
+
+{
+name:"Lachaporota",
+bn:"লাচ্ছা পরোটা",
+price:29,
+image:"https://loremflickr.com/800/600/paratha?lock=12"
+},
+
+{
+name:"Aloo Porota",
+bn:"আলু পরোটা",
+price:49,
+image:"https://loremflickr.com/800/600/aloo,paratha?lock=13"
+},
+
+{
+name:"Gobi Porota",
+bn:"গোবি পরোটা",
+price:49,
+image:"https://loremflickr.com/800/600/cauliflower,paratha?lock=14"
+},
+
+{
+name:"Paneer Porota",
+bn:"পনির পরোটা",
+price:49,
+image:"https://loremflickr.com/800/600/paneer,paratha?lock=15"
+},
+
+{
+name:"Motor Porota",
+bn:"মটর পরোটা",
+price:49,
+image:"https://loremflickr.com/800/600/greenpeas,paratha?lock=16"
+},
+
+{
+name:"Tea",
+bn:"চা",
+price:30,
+image:"https://loremflickr.com/800/600/indian,tea?lock=17"
+},
+
+{
+name:"Coffee Cappuccino",
+bn:"কফি ক্যাপুচিনো",
+price:59,
+image:"https://loremflickr.com/800/600/cappuccino?lock=18"
+},
+
+{
+name:"Coffee Latte",
+bn:"কফি লাটে",
+price:69,
+image:"https://loremflickr.com/800/600/latte,coffee?lock=19"
+},
+
+{
+name:"Cold Coffee",
+bn:"কোল্ড কফি",
+price:99,
+image:"https://loremflickr.com/800/600/cold,coffee?lock=20"
+},
+
+{
+name:"Veg Load",
+bn:"ভেজ লোড",
+price:49,
+image:"https://loremflickr.com/800/600/vegetable,sandwich?lock=21"
+},
+
+{
+name:"Chicken Load Half",
+bn:"চিকেন লোড হাফ",
+price:69,
+image:"https://loremflickr.com/800/600/chicken,sandwich?lock=22"
+},
+
+{
+name:"Chicken Load Full",
+bn:"চিকেন লোড ফুল",
+price:99,
+image:"https://loremflickr.com/800/600/chicken,burger?lock=23"
+},
+
+{
+name:"Chicken Over Load",
+bn:"চিকেন ওভার লোড",
+price:149,
+image:"https://loremflickr.com/800/600/chicken,loaded?lock=24"
+},
+
+{
+name:"Paneer Load Half/Full",
+bn:"পনির লোড হাফ/ফুল",
+price:69,
+image:"https://loremflickr.com/800/600/paneer,sandwich?lock=25"
+}
+
+];
 
 
-const prices = {
 
-    momo:69,
-    fried:99,
-    tea:30
+/* =========================================
+   MENU GENERATE
+========================================= */
 
-};
+const menuList =
+document.getElementById("menuList");
 
 
-/* =========================
+let quantities = [];
+
+
+foods.forEach((food,index)=>{
+
+    quantities[index] = 0;
+
+    const card =
+    document.createElement("div");
+
+    card.className = "food";
+
+    card.innerHTML = `
+
+        <img
+            src="${food.image}"
+            alt="${food.name}"
+            loading="lazy"
+        >
+
+        <div class="food-info">
+
+            <h3>
+                ${food.name}
+            </h3>
+
+            <p class="bangla">
+                ${food.bn}
+            </p>
+
+            <div class="price">
+                ₹${food.price}
+            </div>
+
+            <div class="qty">
+
+                <button
+                    onclick="changeQty(${index},-1)"
+                >
+                    −
+                </button>
+
+                <span id="qty-${index}">
+                    0
+                </span>
+
+                <button
+                    onclick="changeQty(${index},1)"
+                >
+                    +
+                </button>
+
+            </div>
+
+        </div>
+    `;
+
+    menuList.appendChild(card);
+
+});
+
+
+
+/* =========================================
    QUANTITY
-========================= */
+========================================= */
 
-function changeQty(food,amount){
+function changeQty(index,amount){
 
-    quantities[food] += amount;
+    quantities[index] += amount;
 
-    if(quantities[food] < 0){
-        quantities[food] = 0;
+    if(quantities[index] < 0){
+        quantities[index] = 0;
     }
 
-    document.getElementById(food).innerText =
-    quantities[food];
+    document.getElementById(
+        "qty-" + index
+    ).innerText =
+    quantities[index];
 
-    calculateTotal();
+    updateCart();
 
 }
 
 
-/* =========================
-   TOTAL
-========================= */
 
-function calculateTotal(){
+/* =========================================
+   CART
+========================================= */
+
+function updateCart(){
+
+    const cart =
+    document.getElementById("cartItems");
 
     let total = 0;
 
-    total +=
-    quantities.momo *
-    prices.momo;
+    let html = "";
 
-    total +=
-    quantities.fried *
-    prices.fried;
+    let selected = false;
 
-    total +=
-    quantities.tea *
-    prices.tea;
+
+    foods.forEach((food,index)=>{
+
+        if(quantities[index] > 0){
+
+            selected = true;
+
+            const itemTotal =
+            quantities[index] *
+            food.price;
+
+            total += itemTotal;
+
+            html += `
+                <p style="margin:7px 0">
+                    ${food.name}
+                    × ${quantities[index]}
+                    = ₹${itemTotal}
+                </p>
+            `;
+
+        }
+
+    });
+
+
+    if(!selected){
+
+        html =
+        "No items selected";
+
+    }
+
+
+    cart.innerHTML = html;
 
     document.getElementById("total").innerText =
     total;
@@ -436,32 +911,58 @@ function calculateTotal(){
 }
 
 
-/* =========================
-   WHATSAPP
-========================= */
+
+/* =========================================
+   WHATSAPP ORDER
+========================================= */
 
 function sendOrder(){
 
     const name =
-    document.getElementById("customerName")
-    .value.trim();
+    document.getElementById(
+        "customerName"
+    ).value.trim();
+
 
     const phone =
-    document.getElementById("customerPhone")
-    .value.trim();
+    document.getElementById(
+        "customerPhone"
+    ).value.trim();
+
 
     const payment =
-    document.getElementById("payment")
-    .value;
+    document.getElementById(
+        "payment"
+    ).value;
 
-    const total =
-    document.getElementById("total")
-    .innerText;
+
+    let total = 0;
+
+    let order = "";
+
+
+    foods.forEach((food,index)=>{
+
+        if(quantities[index] > 0){
+
+            const amount =
+            quantities[index] *
+            food.price;
+
+            total += amount;
+
+            order +=
+            `${food.name} (${food.bn}) × ${quantities[index]} = ₹${amount}\n`;
+
+        }
+
+    });
 
 
     if(!name){
 
-        alert("অনুগ্রহ করে আপনার নাম দিন।");
+        alert("আপনার নাম লিখুন।");
+
         return;
 
     }
@@ -469,60 +970,21 @@ function sendOrder(){
 
     if(!phone){
 
-        alert("অনুগ্রহ করে আপনার ফোন নম্বর দিন।");
+        alert("আপনার ফোন নম্বর লিখুন।");
+
         return;
 
     }
 
 
-    if(total == "0"){
+    if(total === 0){
 
-        alert("আগে অন্তত একটি খাবার নির্বাচন করুন।");
+        alert("আগে খাবার নির্বাচন করুন।");
+
         return;
 
     }
 
-
-    let order = "";
-
-
-    if(quantities.momo > 0){
-
-        order +=
-        "🥟 Chicken Momo × " +
-        quantities.momo +
-        " = ₹" +
-        (quantities.momo * prices.momo) +
-        "\n";
-
-    }
-
-
-    if(quantities.fried > 0){
-
-        order +=
-        "🥟 Fried Momo × " +
-        quantities.fried +
-        " = ₹" +
-        (quantities.fried * prices.fried) +
-        "\n";
-
-    }
-
-
-    if(quantities.tea > 0){
-
-        order +=
-        "☕ Tea × " +
-        quantities.tea +
-        " = ₹" +
-        (quantities.tea * prices.tea) +
-        "\n";
-
-    }
-
-
-    /* তোমার WhatsApp Number */
 
     const restaurantNumber =
     "918918450951";
@@ -530,33 +992,310 @@ function sendOrder(){
 
     const message =
 
-`🍽️ BELLA CIAO - NEW ORDER
+`🍽️ BELLA CIAO NEW ORDER
 
-🪑 TABLE: ${table}
+🪑 Table No: ${table}
 
 ${order}
 💰 TOTAL: ₹${total}
 
-👤 CUSTOMER: ${name}
+👤 Customer: ${name}
 
-📱 PHONE: ${phone}
+📱 Phone: ${phone}
 
-💳 PAYMENT: ${payment}
+💳 Payment: ${payment}
 
-Thank you ❤️`;
+Please prepare the order. ❤️`;
 
 
-    const whatsappURL =
+    const url =
     "https://wa.me/" +
     restaurantNumber +
     "?text=" +
     encodeURIComponent(message);
 
 
-    window.open(
-        whatsappURL,
-        "_blank"
+    window.open(url,"_blank");
+
+}
+
+
+
+/* =========================================
+   REVIEW
+========================================= */
+
+function addReview(){
+
+    const name =
+    document.getElementById(
+        "reviewName"
+    ).value.trim();
+
+
+    const rating =
+    document.getElementById(
+        "rating"
+    ).value;
+
+
+    const text =
+    document.getElementById(
+        "reviewText"
+    ).value.trim();
+
+
+    if(!text){
+
+        alert("Review লিখুন।");
+
+        return;
+
+    }
+
+
+    const review = {
+
+        name:name || "Guest",
+
+        rating:rating,
+
+        text:text
+
+    };
+
+
+    let reviews =
+    JSON.parse(
+        localStorage.getItem("bellaReviews")
+    ) || [];
+
+
+    reviews.unshift(review);
+
+
+    localStorage.setItem(
+        "bellaReviews",
+        JSON.stringify(reviews)
     );
+
+
+    showReviews();
+
+
+    document.getElementById(
+        "reviewText"
+    ).value = "";
+
+}
+
+
+
+function showReviews(){
+
+    const reviews =
+    JSON.parse(
+        localStorage.getItem("bellaReviews")
+    ) || [];
+
+
+    const box =
+    document.getElementById("reviews");
+
+
+    box.innerHTML = "";
+
+
+    reviews.forEach(review=>{
+
+        const div =
+        document.createElement("div");
+
+        div.className = "review";
+
+        div.innerHTML = `
+
+            <h3>
+                ${review.name}
+            </h3>
+
+            <p>
+                ${"⭐".repeat(review.rating)}
+            </p>
+
+            <p style="margin-top:8px">
+                ${review.text}
+            </p>
+
+        `;
+
+        box.appendChild(div);
+
+    });
+
+}
+
+
+showReviews();
+
+
+
+/* =========================================
+   MEMORY PHOTO
+========================================= */
+
+function addMemory(){
+
+    const name =
+    document.getElementById(
+        "memoryName"
+    ).value.trim();
+
+
+    const text =
+    document.getElementById(
+        "memoryText"
+    ).value.trim();
+
+
+    const file =
+    document.getElementById(
+        "memoryPhoto"
+    ).files[0];
+
+
+    if(!file){
+
+        alert("একটি ছবি নির্বাচন করুন।");
+
+        return;
+
+    }
+
+
+    const reader =
+    new FileReader();
+
+
+    reader.onload = function(e){
+
+        const memory = {
+
+            name:name || "Guest",
+
+            text:text,
+
+            image:e.target.result
+
+        };
+
+
+        let memories =
+        JSON.parse(
+            localStorage.getItem("bellaMemories")
+        ) || [];
+
+
+        memories.unshift(memory);
+
+
+        localStorage.setItem(
+            "bellaMemories",
+            JSON.stringify(memories)
+        );
+
+
+        showMemories();
+
+    };
+
+
+    reader.readAsDataURL(file);
+
+}
+
+
+
+function showMemories(){
+
+    const memories =
+    JSON.parse(
+        localStorage.getItem("bellaMemories")
+    ) || [];
+
+
+    const box =
+    document.getElementById("memories");
+
+
+    box.innerHTML = "";
+
+
+    memories.forEach(memory=>{
+
+        const div =
+        document.createElement("div");
+
+        div.className = "memory";
+
+
+        div.innerHTML = `
+
+            <h3>
+                ❤️ ${memory.name}
+            </h3>
+
+            <p style="margin-top:7px">
+                ${memory.text}
+            </p>
+
+            <img
+                src="${memory.image}"
+            >
+
+        `;
+
+
+        box.appendChild(div);
+
+    });
+
+}
+
+
+showMemories();
+
+
+
+/* =========================================
+   MUSIC
+========================================= */
+
+const music =
+document.getElementById("music");
+
+
+function toggleMusic(){
+
+    if(music.paused){
+
+        music.play();
+
+        document.getElementById(
+            "musicButton"
+        ).innerText =
+        "🔊 Music ON";
+
+    }else{
+
+        music.pause();
+
+        document.getElementById(
+            "musicButton"
+        ).innerText =
+        "🎵 Music";
+
+    }
 
 }
 
