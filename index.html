@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Bella Ciao Restaurant</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:#0d0d0d;
+    color:white;
+}
+
+.hero{
+    min-height:45vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:30px;
+
+    background:
+    linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.75)),
+    url("https://images.unsplash.com/photo-1515003197210-e0cd71810b5f");
+
+    background-size:cover;
+    background-position:center;
+}
+
+.hero h1{
+    font-size:55px;
+    color:#d4af37;
+}
+
+.hero p{
+    margin-top:12px;
+    font-size:18px;
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+    padding:30px 18px;
+}
+
+.table-box{
+    text-align:center;
+    background:#1c1c1c;
+    padding:25px;
+    border-radius:18px;
+    border:1px solid #333;
+    margin-bottom:30px;
+}
+
+.table-box h2{
+    color:#d4af37;
+    margin-bottom:10px;
+}
+
+.qr-box{
+    background:white;
+    padding:15px;
+    border-radius:15px;
+    display:inline-block;
+    margin-top:15px;
+}
+
+.qr-box img{
+    width:180px;
+    height:180px;
+    display:block;
+}
+
+.food{
+    background:#1c1c1c;
+    border-radius:18px;
+    padding:20px;
+    margin:15px 0;
+    border:1px solid #333;
+}
+
+.food h2{
+    color:#d4af37;
+}
+
+.food p{
+    color:#bbb;
+    margin:7px 0;
+}
+
+.price{
+    font-size:22px;
+    font-weight:bold;
+    margin:12px 0;
+}
+
+.quantity{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.quantity button{
+    width:38px;
+    height:38px;
+    border:0;
+    border-radius:50%;
+    background:#d4af37;
+    font-size:20px;
+    cursor:pointer;
+}
+
+.quantity span{
+    font-size:20px;
+    min-width:25px;
+    text-align:center;
+}
+
+.order-box{
+    background:#1c1c1c;
+    padding:25px;
+    border-radius:18px;
+    margin-top:30px;
+    border:1px solid #333;
+}
+
+input,select{
+    width:100%;
+    padding:13px;
+    margin:8px 0;
+    border-radius:9px;
+    border:1px solid #555;
+    background:#101010;
+    color:white;
+}
+
+.total{
+    font-size:25px;
+    color:#d4af37;
+    font-weight:bold;
+    margin:20px 0;
+}
+
+.order-btn{
+    width:100%;
+    padding:15px;
+    border:0;
+    border-radius:30px;
+    background:#25D366;
+    color:white;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+footer{
+    text-align:center;
+    padding:30px;
+    color:#888;
+}
+</style>
+</head>
+
+<body>
+
+<div class="hero">
+    <div>
+        <h1>Bella Ciao</h1>
+        <p>Delicious Food • Great Moments ❤️</p>
+    </div>
+</div>
+
+<div class="container">
+
+<!-- TABLE + QR -->
+
+<div class="table-box">
+
+    <h2 id="tableNumber">
+        🪑 Table No. 1
+    </h2>
+
+    <p>
+        এই টেবিল থেকে অর্ডার করা হচ্ছে
+    </p>
+
+    <div class="qr-box">
+        <img id="qrImage" alt="Table QR Code">
+    </div>
+
+    <p style="color:#777;margin-top:10px">
+        📱 এই QR Code scan করে order করুন
+    </p>
+
+</div>
+
+
+<h2 style="text-align:center;color:#d4af37;margin-bottom:20px">
+    🍽️ Our Menu
+</h2>
+
+
+<!-- CHICKEN MOMO -->
+
+<div class="food">
+
+    <h2>🥟 Chicken Momo</h2>
+
+    <p>চিকেন মোমো (৬ পিস)</p>
+
+    <div class="price">₹69</div>
+
+    <div class="quantity">
+
+        <button onclick="changeQty('momo',-1)">−</button>
+
+        <span id="momo">0</span>
+
+        <button onclick="changeQty('momo',1)">+</button>
+
+    </div>
+
+</div>
+
+
+<!-- FRIED MOMO -->
+
+<div class="food">
+
+    <h2>🥟 Fried Momo</h2>
+
+    <p>ফ্রাইড মোমো (৬ পিস)</p>
+
+    <div class="price">₹99</div>
+
+    <div class="quantity">
+
+        <button onclick="changeQty('fried',-1)">−</button>
+
+        <span id="fried">0</span>
+
+        <button onclick="changeQty('fried',1)">+</button>
+
+    </div>
+
+</div>
+
+
+<!-- TEA -->
+
+<div class="food">
+
+    <h2>☕ Tea</h2>
+
+    <p>চা</p>
+
+    <div class="price">₹30</div>
+
+    <div class="quantity">
+
+        <button onclick="changeQty('tea',-1)">−</button>
+
+        <span id="tea">0</span>
+
+        <button onclick="changeQty('tea',1)">+</button>
+
+    </div>
+
+</div>
+
+
+<!-- CUSTOMER -->
+
+<div class="order-box">
+
+    <h2>👤 Customer Details</h2>
+
+    <input
+        id="customerName"
+        placeholder="আপনার নাম"
+    >
+
+    <input
+        id="customerPhone"
+        placeholder="আপনার ফোন নম্বর"
+        type="tel"
+    >
+
+    <h3 style="margin-top:20px">
+        💳 Payment Method
+    </h3>
+
+    <select id="payment">
+
+        <option value="Cash">
+            💵 Cash Payment
+        </option>
+
+        <option value="Online">
+            🟢 Online Payment
+        </option>
+
+    </select>
+
+    <div class="total">
+        Total: ₹<span id="total">0</span>
+    </div>
+
+    <button
+        class="order-btn"
+        onclick="sendOrder()"
+    >
+        📱 WhatsApp এ Order করুন
+    </button>
+
+</div>
+
+</div>
+
+<footer>
+    © 2026 Bella Ciao Restaurant ❤️
+</footer>
+
+
+<script>
+
+/* =========================
+   TABLE NUMBER
+========================= */
+
+const params =
+new URLSearchParams(window.location.search);
+
+const table =
+params.get("table") || "1";
+
+
+document.getElementById("tableNumber").innerText =
+"🪑 Table No. " + table;
+
+
+/* =========================
+   QR CODE
+========================= */
+
+/*
+   Website online হলে এই URL-টাই
+   QR Code-এর ভিতরে থাকবে।
+*/
+
+const websiteURL =
+window.location.href.split("?")[0];
+
+const qrURL =
+websiteURL + "?table=" + table;
+
+
+document.getElementById("qrImage").src =
+"https://api.qrserver.com/v1/create-qr-code/?size=300x300&data="
++ encodeURIComponent(qrURL);
+
+
+/* =========================
+   FOOD
+========================= */
+
+let quantities = {
+
+    momo:0,
+    fried:0,
+    tea:0
+
+};
+
+
+const prices = {
+
+    momo:69,
+    fried:99,
+    tea:30
+
+};
+
+
+/* =========================
+   QUANTITY
+========================= */
+
+function changeQty(food,amount){
+
+    quantities[food] += amount;
+
+    if(quantities[food] < 0){
+        quantities[food] = 0;
+    }
+
+    document.getElementById(food).innerText =
+    quantities[food];
+
+    calculateTotal();
+
+}
+
+
+/* =========================
+   TOTAL
+========================= */
+
+function calculateTotal(){
+
+    let total = 0;
+
+    total +=
+    quantities.momo *
+    prices.momo;
+
+    total +=
+    quantities.fried *
+    prices.fried;
+
+    total +=
+    quantities.tea *
+    prices.tea;
+
+    document.getElementById("total").innerText =
+    total;
+
+}
+
+
+/* =========================
+   WHATSAPP
+========================= */
+
+function sendOrder(){
+
+    const name =
+    document.getElementById("customerName")
+    .value.trim();
+
+    const phone =
+    document.getElementById("customerPhone")
+    .value.trim();
+
+    const payment =
+    document.getElementById("payment")
+    .value;
+
+    const total =
+    document.getElementById("total")
+    .innerText;
+
+
+    if(!name){
+
+        alert("অনুগ্রহ করে আপনার নাম দিন।");
+        return;
+
+    }
+
+
+    if(!phone){
+
+        alert("অনুগ্রহ করে আপনার ফোন নম্বর দিন।");
+        return;
+
+    }
+
+
+    if(total == "0"){
+
+        alert("আগে অন্তত একটি খাবার নির্বাচন করুন।");
+        return;
+
+    }
+
+
+    let order = "";
+
+
+    if(quantities.momo > 0){
+
+        order +=
+        "🥟 Chicken Momo × " +
+        quantities.momo +
+        " = ₹" +
+        (quantities.momo * prices.momo) +
+        "\n";
+
+    }
+
+
+    if(quantities.fried > 0){
+
+        order +=
+        "🥟 Fried Momo × " +
+        quantities.fried +
+        " = ₹" +
+        (quantities.fried * prices.fried) +
+        "\n";
+
+    }
+
+
+    if(quantities.tea > 0){
+
+        order +=
+        "☕ Tea × " +
+        quantities.tea +
+        " = ₹" +
+        (quantities.tea * prices.tea) +
+        "\n";
+
+    }
+
+
+    /* তোমার WhatsApp Number */
+
+    const restaurantNumber =
+    "918918450951";
+
+
+    const message =
+
+`🍽️ BELLA CIAO - NEW ORDER
+
+🪑 TABLE: ${table}
+
+${order}
+💰 TOTAL: ₹${total}
+
+👤 CUSTOMER: ${name}
+
+📱 PHONE: ${phone}
+
+💳 PAYMENT: ${payment}
+
+Thank you ❤️`;
+
+
+    const whatsappURL =
+    "https://wa.me/" +
+    restaurantNumber +
+    "?text=" +
+    encodeURIComponent(message);
+
+
+    window.open(
+        whatsappURL,
+        "_blank"
+    );
+
+}
+
+</script>
+
+</body>
+</html>
